@@ -1,0 +1,5 @@
+{{ define "main" }}
+  <h1>Tag: {{ .Title }}</h1>
+  {{ partial "post-list.html" .RegularPages }}
+  <p class="back"><a href="{{ "blog/" | relURL }}">← Zum Blog</a></p>
+{{ end }}

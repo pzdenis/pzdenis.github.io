@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <h1>{{ site.Title }}</h1>
+  <section aria-labelledby="beitraege">
+    <h2 id="beitraege" class="section-title">Beiträge</h2>
+    {{ partial "post-list.html" (where site.RegularPages "Section" "posts") }}
+  </section>
+{{ end }}

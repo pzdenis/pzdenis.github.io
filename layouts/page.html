@@ -1,0 +1,13 @@
+{{ define "main" }}
+  {{ if and (eq .Section "posts") (not .Title) }}
+    {{ errorf "Beitrag %s: Bitte title im Front Matter ergänzen." .File.Path }}
+  {{ end }}
+  <article>
+    <header class="article-header">
+      <h1>{{ .Title }}</h1>
+      {{ if eq .Section "posts" }}{{ partial "post-meta.html" . }}{{ end }}
+    </header>
+    <div class="prose">{{ .Content }}</div>
+  </article>
+  <p class="back"><a href="{{ "blog/" | relURL }}">← Zum Blog</a></p>
+{{ end }}

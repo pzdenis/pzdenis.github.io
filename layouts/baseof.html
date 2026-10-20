@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ site.Title }}</title>
+  {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ "index.xml" | absURL }}">
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <header class="site-header wrap">
+    <a class="brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+    <nav aria-label="Hauptnavigation">
+      {{ range site.Menus.main }}
+        {{ $label := .Name }}
+        {{ with .Page }}<a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ $label }}</a>{{ end }}
+      {{ end }}
+    </nav>
+  </header>
+  <main id="inhalt" class="wrap" tabindex="-1">{{ block "main" . }}{{ end }}</main>
+  <footer class="site-footer wrap"><span>{{ site.Title }}</span><a href="{{ "index.xml" | relURL }}">RSS</a></footer>
+</body>
+</html>

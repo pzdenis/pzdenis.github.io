@@ -1,0 +1,46 @@
+baseURL = 'https://pzdenis.github.io/'
+title = 'pzdenis'
+locale = 'de-DE'
+defaultContentLanguage = 'de'
+timeZone = 'Europe/Berlin'
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+disableKinds = ['taxonomy']
+
+[module]
+  [module.hugoVersion]
+    min = '0.158.0'
+
+[permalinks.page]
+  posts = '/blog/:slug/'
+
+[taxonomies]
+  tag = 'tags'
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML']
+  term = ['HTML']
+
+[sitemap]
+  changeFreq = ''
+  priority = -1
+
+[caches.images]
+  dir = ':cacheDir/images'
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[menus.main]]
+  name = 'Blog'
+  pageRef = '/blog'
+  weight = 20
+# Erst nach dem Anlegen einer eigenen content/about.md aktivieren:
+# [[menus.main]]
+#   name = 'About'
+#   pageRef = '/about'
+#   weight = 30
