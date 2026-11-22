@@ -1,7 +1,17 @@
+{{ $page := . }}
+{{ $compact := false }}
+{{ if reflect.IsMap . }}
+  {{ $page = .page }}
+  {{ $compact = .compact }}
+{{ end }}
 <div class="meta">
-  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
-  {{ if .Draft }}<span>Entwurf</span>{{ end }}
-  {{ with .GetTerms "tags" }}
+  {{ if and (not $compact) (not $page.Date.IsZero) }}<time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "02.01.2006" }}</time>{{ end }}
+  {{ with $page.Params.author }}<span>{{ . }}</span>{{ end }}
+  {{ if not $compact }}
+    {{ with $page.Params.category }}<span>{{ . }}</span>{{ end }}
+    {{ if $page.Draft }}<span>Entwurf</span>{{ end }}
+  {{ end }}
+  {{ with $page.GetTerms "tags" }}
   <ul class="tags" aria-label="Tags">{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}</ul>
   {{ end }}
 </div>

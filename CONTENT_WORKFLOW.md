@@ -1,7 +1,6 @@
 # Artikel pflegen
 
-Alle Befehle im Projektverzeichnis ausführen. Inhalte liegen ausschließlich
-als normale Markdown-Dateien unter `content/posts/`.
+Alle Befehle im Projektverzeichnis ausführen. Beiträge liegen unter `content/posts/`. Neue Standardbeiträge sind Markdown-Dateien.
 
 ## Anlegen und bearbeiten
 
@@ -57,3 +56,18 @@ Der Workflow baut frisch und ohne Entwürfe; `--cleanDestinationDir`
 entfernt bei lokalen Builds auch alte Ausgaben zurückgezogener Artikel.
 Bereits heruntergeladene Kopien und fremde Feed-Caches bleiben außerhalb
 der Kontrolle der Website.
+
+## Quarto-Fachartikel
+
+`content/posts/geldmarktkurve/` ist ein Hugo-Leaf-Bundle. `index.html`
+enthält Front Matter und den aus Quarto übernommenen Artikelinhalt.
+Hugo ergänzt Navigation, Metadaten und Seitenrahmen. Die Formeln liegen
+als natives MathML vor, die Bilder sind eingebettet und `article.css`
+gilt nur für diesen Beitrag.
+
+Für Änderungen im separaten Quarto-Projekt rendern und den Artikelinhalt
+ab der ersten Abschnittsüberschrift in `article.quarto` übernehmen. Front Matter und
+Bewertungsstichtag bleiben im Bundle. Erst bei Freigabe den
+Autorenplatzhalter ersetzen, `date` und `publishDate` mit dem tatsächlichen
+Veröffentlichungsdatum ergänzen und `draft` auf `false` setzen. Danach
+Produktions-Build und Sitemap prüfen.

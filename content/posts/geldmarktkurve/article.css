@@ -1,0 +1,159 @@
+/* Fachartikel innerhalb des pzdenis-Layouts. */
+
+main.wrap:has(> article.quarto-post) { width: min(100% - 40px, 830px); }
+
+.quarto-post .prose { font: 16px/1.65 Georgia, serif; }
+
+.quarto-post h1,
+.quarto-post .prose h2,
+.quarto-post .prose h3,
+.quarto-post .prose h4,
+.quarto-post .prose .valuation-date,
+.quarto-post .prose table,
+.quarto-post .prose figcaption {
+  font-family: system-ui, sans-serif;
+}
+
+.quarto-post h1,
+.quarto-post .prose h2,
+.quarto-post .prose h3,
+.quarto-post .prose h4 {
+  text-align: left;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.quarto-post h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.quarto-post .prose h2 {
+  font-size: 24px;
+  font-weight: 680;
+  margin: 40px 0 14px;
+}
+
+.quarto-post .prose h3 {
+  font-size: 19px;
+  font-weight: 650;
+  margin: 28px 0 10px;
+}
+
+.quarto-post .prose h4 {
+  font-size: 16px;
+  font-weight: 650;
+  margin: 22px 0 8px;
+}
+
+.quarto-post .article-header {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 32px;
+}
+
+.quarto-post .prose p {
+  margin: 0 0 14px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.quarto-post .prose .valuation-date {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0 24px;
+  text-align: left;
+}
+
+.quarto-post .prose details {
+  border-block: 1px solid #ddd;
+  margin: 18px 0;
+  padding: 8px 0;
+}
+
+.quarto-post .prose summary {
+  cursor: pointer;
+  color: #28546c;
+  font: 550 14px/1.65 system-ui, sans-serif;
+}
+
+.quarto-post .prose details[open] > summary {
+  margin-bottom: 10px;
+}
+
+.quarto-post .prose summary:focus-visible {
+  outline: 2px solid #28546c;
+  outline-offset: 3px;
+}
+
+.quarto-post .prose a {
+  color: #28546c;
+  text-underline-offset: .18em;
+}
+
+.quarto-post .prose .table-scroll {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.quarto-post .prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  display: table;
+}
+
+.quarto-post .prose th,
+.quarto-post .prose td {
+  border-bottom: 1px solid #ddd;
+  padding: 7px 9px;
+}
+
+.quarto-post .prose thead th {
+  vertical-align: bottom;
+  border-bottom-color: #999;
+}
+
+.quarto-post .prose .table-scroll td {
+  white-space: nowrap;
+}
+
+.quarto-post .prose caption,
+.quarto-post .prose figcaption {
+  font-size: 14px;
+  color: #505050;
+}
+
+.quarto-post .prose caption {
+  text-align: left;
+  padding-bottom: 7px;
+}
+
+.quarto-post .prose figure {
+  margin: 24px 0;
+}
+
+.quarto-post .prose img {
+  max-width: 100%;
+  height: auto;
+}
+
+.quarto-post .prose code {
+  overflow-wrap: anywhere;
+}
+
+.quarto-post .prose math {
+  font-size: 1em;
+}
+
+.quarto-post .prose p:has(> math[display="block"]) {
+  margin: 16px 0;
+  padding-block: 3px;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.quarto-post .prose math[display="block"] {
+  margin-inline: auto;
+}

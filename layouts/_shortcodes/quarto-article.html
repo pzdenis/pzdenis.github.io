@@ -1,0 +1,5 @@
+{{- with .Page.Resources.GetMatch "article.quarto" -}}
+  {{- .Content | safeHTML -}}
+{{- else -}}
+  {{- errorf "Quarto-Export fehlt im Bundle %s" .Page.File.Path -}}
+{{- end -}}

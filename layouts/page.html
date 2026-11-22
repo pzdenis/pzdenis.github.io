@@ -2,10 +2,12 @@
   {{ if and (eq .Section "posts") (not .Title) }}
     {{ errorf "Beitrag %s: Bitte title im Front Matter ergänzen." .File.Path }}
   {{ end }}
-  <article>
+  <article{{ with .Params.article_styles }} class="quarto-post"{{ end }}>
     <header class="article-header">
       <h1>{{ .Title }}</h1>
-      {{ if eq .Section "posts" }}{{ partial "post-meta.html" . }}{{ end }}
+      {{ if eq .Section "posts" }}
+        {{ partial "post-meta.html" (dict "page" . "compact" .Params.compact_article_header) }}
+      {{ end }}
     </header>
     <div class="prose">{{ .Content }}</div>
   </article>

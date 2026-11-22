@@ -8,6 +8,19 @@
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ "index.xml" | absURL }}">
+  {{ if and .IsPage (eq .Section "posts") }}
+    {{ with .Params.article_styles }}
+      {{ with $.Resources.GetMatch . }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
+    {{ end }}
+    {{ with .Params.author }}
+      <meta name="author" content="{{ . }}">
+      {{ $posting := dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" $.Title "description" $.Description "author" (dict "@type" "Person" "name" .) "url" $.Permalink "mainEntityOfPage" $.Permalink "inLanguage" "de" }}
+      {{ with $.Params.category }}{{ $posting = merge $posting (dict "articleSection" .) }}{{ end }}
+      {{ if not $.PublishDate.IsZero }}{{ $posting = merge $posting (dict "datePublished" ($.PublishDate.Format "2006-01-02")) }}{{ end }}
+      <script type="application/ld+json">{{ $posting | jsonify | safeJS }}</script>
+    {{ end }}
+    {{ if .Draft }}<meta name="robots" content="noindex, nofollow">{{ end }}
+  {{ end }}
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt</a>
